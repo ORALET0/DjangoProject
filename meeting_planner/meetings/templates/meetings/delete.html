@@ -1,0 +1,24 @@
+
+
+{% extends 'base.html' %}
+
+{% block title %}Delete Meeting{% endblock %}
+
+{% block content %}
+<div class="row mt-2">
+        <div class="col-sm-6">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="card-title">Delete Meeting</h5>
+                </div>
+                <form method="POST">
+                    {% csrf_token %}
+                    <div class="card-footer">
+                        <a href="{% url 'welcome' %}" class="btn btn-sm btn-outline-primary me-2 ms-2 float-end">Back Home</a>
+                        <button type="submit" class="btn btn-sm btn-outline-danger me-2 ms-2 float-end">Delete</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

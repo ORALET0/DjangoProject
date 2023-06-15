@@ -1,0 +1,23 @@
+
+{% extends 'base.html' %}
+{% load django_bootstrap5 %}
+{% block title %}Update Room{% endblock %}
+{% block content %}
+<div class="row mt-2">
+  <div class="card">
+    <div class="card-header">
+      <h4 class="card-title">Update Room</h4>
+    </div>
+    <form method="POST">
+      {% csrf_token %}
+      <div class="card-body">
+        {% bootstrap_form form %}
+      </div>
+      <div class="card-footer">
+        <a href="{% url 'welcome' %}" class="btn btn-sm btn-outline-primary float-end me-2 ms-2">Black Home</a>
+        <button type="submit" class="btn btn-sn btn-outline-success float-end me-2 ms-2">Update</button>
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock %}

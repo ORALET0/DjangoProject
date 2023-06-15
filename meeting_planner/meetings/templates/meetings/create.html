@@ -1,0 +1,28 @@
+
+{% extends 'base.html' %}
+{% load django_bootstrap5 %}
+{% block title %}
+    Create New Meeting
+{% endblock %}
+
+{% block content %}
+    <div class="row mt-2">
+        <div class="col-sm-6">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="card-title">Schedule New Meeting</h5>
+                </div>
+                <form method="POST">
+                    {% csrf_token %}
+                    <div class="card-body">
+                        {% bootstrap_form form %}
+                    </div>
+                    <div class="card-footer">
+                        <a href="{% url 'welcome' %}" class="btn btn-sm btn-outline-primary me-2 ms-2 float-end">Back Home</a>
+                        <button type="submit" class="btn btn-sm btn-outline-success me-2 ms-2 float-end">Create</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

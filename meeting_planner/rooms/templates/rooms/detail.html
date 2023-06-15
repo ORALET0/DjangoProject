@@ -1,0 +1,26 @@
+
+
+{% extends "base.html" %}
+
+{% block title %}
+  {{ room.name }}
+{% endblock %}
+
+{% block content %}
+<div class="row mt_2">
+    <div class="col-sm-6">
+        <div class="card">
+            <div class="card-header">
+                <h4 class="card-title">{{ room.name }}</h4>
+            </div>
+            <div class="card-body">
+                <p class="card-text"><strong>Floor: </strong>{{ room.floor }}</p>
+                <p class="card-text"><strong>Room Number: </strong>{{ room.room_number }}</p>
+            </div>
+            <div class="card-footer">
+                <a href="{% url 'welcome' %}" class="btn btn-sm btn-outline-primary float-end">Back to Home</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,62 @@
+
+{% extends "base.html" %}
+
+{% block title %}Welcome{% endblock %}
+
+{% block content %}
+<div class="row mt-2 ms-auto me-auto">
+    <div class="col-sm-12">
+        <div class="p-5 mb-4 bg-dark rounded-3">
+      <div class="container-fluid py-5">
+        <h1 class="display-5 fw-bold">{{ message }}</h1>
+        <p class="col-md-8 fs-4">The are currently <strong>{{ num_meeting }}</strong> meetings.</p>
+        <button class="btn btn-primary btn-lg" type="button">See All Meetings</button>
+      </div>
+    </div>
+    </div>
+</div>
+<div class="row mt-2 ms-auto me-auto">
+    <div class="col-sm-12">
+        <div class="card">
+        <div class="card-header">
+            <h5 class="card-title">Meeting List</h5>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-sm table-striped">
+                    <thead>
+                        <tr>
+                            <th>Title</th>
+                            <th>Date</th>
+                            <th>Detail</th>
+                            <th>Update</th>
+                            <th>Delete</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% for meeting in meetings %}
+                        <tr>
+                            <td>{{ meeting.title }}</td>
+                            <td>{{ meeting.date }}</td>
+                            <td>
+                                <a href="{% url 'detail' meeting.id %}" class="btn btn-md btn-info">Detail</a>
+                            </td>
+                            <td>
+                                <a href="{% url 'update' meeting.id %}" class="btn btn-md btn-warning">Update</a>
+                            </td>
+                            <td>
+                                <a href="{% url 'delete' meeting.id %}" class="btn btn-md btn-danger">Delete</a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="card-footer">
+            <a href="{% url 'create' %}" class="btn btn-md btn-success float-end">Create New Meeting</a>
+        </div>
+    </div>
+    </div>
+</div>
+{% endblock %}
